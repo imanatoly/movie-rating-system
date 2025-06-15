@@ -27,7 +27,7 @@ class RatingServiceTest {
     private RatingService ratingService;
 
     @Test
-    void testRateMovie_NewRating() {
+    void shouldRateMovie() {
         // Arrange
         String username = "testuser";
         Long movieId = 1L;

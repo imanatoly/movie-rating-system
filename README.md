@@ -1,3 +1,43 @@
+## How to run
+
+Data is from MovieLens dataset, which is available at https://grouplens.org/datasets/movielens/latest/
+
+Spring Boot application is used for the backend, with Postgres as the database and Redis for caching. Flyway is used 
+for database migrations, and Swagger is used for API documentation. JWT is used for authentication and authorization.
+
+Code is generated with Gemini 2.5 Pro Preview and manually fixed in many places.
+
+For running Postgres and Redis, you can use the provided `docker-compose.yml` file.
+```
+./docker-compose up 
+```
+
+For the backend, you can use the provided Gradle wrapper to run the application.
+```
+./gradlew bootRun
+```
+
+Then you can [reach the swagger here](http://localhost:8080/swagger-ui/index.htm).
+
+Admin user credentials are `admin/SuperSecretPassword123`
+
+
+## Whats Next?
+
+* Missing endpoints eg basic profile where users can view their rated movies
+* Implement Unit & Integration Tests
+* Organise logging 
+* Refactor code to DDD
+* Jooq or Jetbrains Exposed for database access
+* Separate production and development configurations
+* Move credentials to environment variables that can be retrieved from a secrets manager
+* Sonarqube integration for code quality 
+* ...
+  
+
+
+
+
 # Backend Senior Coding Challenge 🍿
 
 Welcome to our Movie Rating System Coding Challenge! We appreciate you taking
