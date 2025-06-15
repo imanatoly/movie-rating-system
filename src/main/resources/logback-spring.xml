@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+
+    <!--
+    Define a VERY SIMPLE, standard log pattern without any Spring-specific magic.
+    This pattern is guaranteed to work with any standard Logback setup.
+    -->
+    <property name="SIMPLE_LOG_PATTERN"
+              value="[%d{yyyy-MM-dd HH:mm:ss.SSS}] [%thread] %-5level %logger{36} - %msg%n"/>
+
+    <!--
+    Define a standard console appender using our simple pattern.
+    -->
+    <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder>
+            <pattern>${SIMPLE_LOG_PATTERN}</pattern>
+        </encoder>
+    </appender>
+
+    <!--
+    Set the log levels for debugging. They now point to our safe "STDOUT" appender.
+    -->
+    <logger name="org.springframework.security" level="DEBUG" additivity="false">
+        <appender-ref ref="STDOUT"/>
+    </logger>
+    <logger name="org.springframework.web" level="DEBUG" additivity="false">
+        <appender-ref ref="STDOUT"/>
+    </logger>
+    <logger name="com.example.movieratingsystem" level="DEBUG" additivity="false">
+        <appender-ref ref="STDOUT"/>
+    </logger>
+
+
+    <!-- The root logger handles everything else. -->
+    <root level="INFO">
+        <appender-ref ref="STDOUT"/>
+    </root>
+
+</configuration>
